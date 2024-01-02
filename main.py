@@ -136,7 +136,7 @@ def update_request_counts():
 def go_back_button():
     """Generates a "Go Back" button for inline keyboard."""
 
-    button = types.InlineKeyboardButton("Go Back", callback_data="go_back")
+    button = types.InlineKeyboardButton("Назад", callback_data="go_back")
     keyboard = types.InlineKeyboardMarkup()
     keyboard.add(button)
     return keyboard
@@ -241,7 +241,6 @@ async def update_user_statistics():
     user_statistics['month'] += 1
     user_statistics['total'] += 1
 
-    # Write updated user statistics to CSV file
     with open(USER_STATS_FILE, 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=USER_STATS_FIELDNAMES)
         writer.writeheader()
@@ -250,7 +249,6 @@ async def update_user_statistics():
 
 @dp.message_handler(lambda message: message.from_user.id not in read_user_ids(USER_IDS_FILE))
 async def handle_new_user(message: types.Message):
-
     """Handles new user registrations."""
     user_id = message.from_user.id
     user_ids = read_user_ids(USER_IDS_FILE)
@@ -258,7 +256,8 @@ async def handle_new_user(message: types.Message):
     if user_id not in user_ids:
         user_ids.append(user_id)
         store_user_ids(user_ids, USER_IDS_FILE)
-
+        # Optionally send a welcome message or instructions
+        await message.answer("Welcome! You are now registered. \nenter /start to use the bot.")
 
 @dp.message_handler(commands=['send_to_all'], state='*')
 async def send_to_all_users(message: types.Message):
@@ -328,7 +327,6 @@ async def process_password(message: types.Message, state: FSMContext):
 
 @dp.callback_query_handler(lambda c: c.data in crypto_data, state=[Form.edit_coin, Form.user_coin])
 async def process_coin(callback_query: types.CallbackQuery, state: FSMContext):
-
     """Processes the selected coin for editing."""
     coin = callback_query.data
     await state.update_data(coin=coin)
@@ -338,12 +336,14 @@ async def process_coin(callback_query: types.CallbackQuery, state: FSMContext):
             timeframe, callback_data=timeframe.lower())
         keyboard.row(button)
     keyboard.row(types.InlineKeyboardButton(
-        "Go Back", callback_data="go_back"))  # Add "Go Back" button
-    await callback_query.message.answer(f"Selected {coin}. Choose timeframe:", reply_markup=keyboard)
+        "Назад", callback_data="go_back"))
+
+    # Edit the current message with the new keyboard
+    await callback_query.message.edit_text(f"Выбрана {coin}. Выберите диапазон:", reply_markup=keyboard)
+
     current_state = await state.get_state()
     next_state = Form.edit_timeframe if current_state == Form.edit_coin.state else Form.user_timeframe
     await next_state.set()
-
 # Timeframe selection for Admin
 
 
@@ -433,8 +433,7 @@ async def process_user_timeframe(callback_query: types.CallbackQuery, state: FSM
                 caption=(
                     f"Cудя по анализу за последние недели, лучшая зона для покупок {data['coin']} ({timeframe}) это зона : {price} $"
                     f"\n\n\nМожно поставить от этой цены стоп-лосс {additional_data[timeframe][0]}%, и тейк {additional_data[timeframe][1]}%"
-                ),
-                reply_markup=go_back_button()
+                )
             )
 
         # Increment total_request_count
@@ -446,9 +445,14 @@ async def process_user_timeframe(callback_query: types.CallbackQuery, state: FSM
 
 @dp.message_handler(commands='start', state='*')
 async def cmd_start(message: types.Message, callback_query: types.CallbackQuery = None):
-
-    """Handles the start command and role selection for users."""
+    # Check and register the user
     user_id = message.from_user.id
+    user_ids = read_user_ids(USER_IDS_FILE)
+
+    if user_id not in user_ids:
+        user_ids.append(user_id)
+        store_user_ids(user_ids, USER_IDS_FILE)
+    """Handles the start command and role selection for users."""
 
     # Welcome message
     welcome_text = (
@@ -488,7 +492,7 @@ async def cmd_start(message: types.Message, callback_query: types.CallbackQuery 
     else:
         # If the user is not an admin, show only the user option
         keyboard = types.InlineKeyboardMarkup()
-        user_button = types.InlineKeyboardButton("User", callback_data="user")
+        user_button = types.InlineKeyboardButton("готов выбирать монеты", callback_data="user")
         keyboard.row(user_button)
         text = "Choose your role:"
 
@@ -538,8 +542,8 @@ async def show_coins(message, state, next_state, callback_query=None):
     for coin in crypto_data:
         button = InlineKeyboardButton(coin, callback_data=coin)
         keyboard.row(button)
-    keyboard.row(InlineKeyboardButton("Go Back", callback_data="go_back"))
-    text = "Choose a coin:"
+    keyboard.row(InlineKeyboardButton("Назад", callback_data="go_back"))
+    text = "Выберите монету:"
 
     # Check if it's a callback_query and edit the message accordingly
     if callback_query:
