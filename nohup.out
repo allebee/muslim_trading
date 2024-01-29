@@ -6695,3 +6695,658 @@ Traceback (most recent call last):
   File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
     raise exceptions.TelegramAPIError(description)
 aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Task exception was never retrieved
+future: <Task finished name='Task-40825' coro=<Dispatcher._process_polling_updates() done, defined at /home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:407> exception=MessageNotModified('Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message')>
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 415, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 235, in process_updates
+    return await asyncio.gather(*tasks)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 283, in process_update
+    return await self.callback_query_handlers.notify(update.callback_query)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/home/ubuntu/trading_telegram/main.py", line 566, in process_role
+    await show_coins(callback_query.message, state, Form.user_coin, callback_query)
+  File "/home/ubuntu/trading_telegram/main.py", line 550, in show_coins
+    await callback_query.message.edit_text(text, reply_markup=keyboard)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/types/message.py", line 2892, in edit_text
+    return await self.bot.edit_message_text(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 2990, in edit_message_text
+    result = await self.request(api.Methods.EDIT_MESSAGE_TEXT, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/utils/exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.MessageNotModified: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 111, in check_result
+    raise exceptions.RetryAfter(parameters.retry_after)
+aiogram.utils.exceptions.RetryAfter: Flood control exceeded. Retry in 5 seconds.
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 111, in check_result
+    raise exceptions.RetryAfter(parameters.retry_after)
+aiogram.utils.exceptions.RetryAfter: Flood control exceeded. Retry in 5 seconds.
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+[342120556, 6656186967]
+Error sending message to user 897190202: Chat not found
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+6656186967
+[342120556, 6656186967]
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+342120556
+[342120556, 6656186967]
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 897190202: Chat not found
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 111, in check_result
+    raise exceptions.RetryAfter(parameters.retry_after)
+aiogram.utils.exceptions.RetryAfter: Flood control exceeded. Retry in 5 seconds.
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 111, in check_result
+    raise exceptions.RetryAfter(parameters.retry_after)
+aiogram.utils.exceptions.RetryAfter: Flood control exceeded. Retry in 5 seconds.
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 111, in check_result
+    raise exceptions.RetryAfter(parameters.retry_after)
+aiogram.utils.exceptions.RetryAfter: Flood control exceeded. Retry in 5 seconds.
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Task exception was never retrieved
+future: <Task finished name='Task-159550' coro=<Dispatcher._process_polling_updates() done, defined at /home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:407> exception=NetworkError('Aiohttp client throws an error: ClientOSError: [Errno 104] Connection reset by peer')>
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiohttp/client.py", line 1167, in __aenter__
+    self._resp = await self._coro
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiohttp/client.py", line 586, in _request
+    await resp.start(conn)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 905, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiohttp/streams.py", line 616, in read
+    await self._waiter
+aiohttp.client_exceptions.ClientOSError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 415, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 235, in process_updates
+    return await asyncio.gather(*tasks)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 283, in process_update
+    return await self.callback_query_handlers.notify(update.callback_query)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/home/ubuntu/trading_telegram/main.py", line 430, in process_user_timeframe
+    await bot.send_photo(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 561, in send_photo
+    result = await self.request(api.Methods.SEND_PHOTO, payload, files)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientOSError: [Errno 104] Connection reset by peer
+Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/aiogram/bot/api.py", line 128, in check_result
+    raise exceptions.TelegramAPIError(description)
+aiogram.utils.exceptions.TelegramAPIError: Bad Gateway
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 5929293598: Forbidden: bot was blocked by the user
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 781186965: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 5929293598: Forbidden: bot was blocked by the user
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bot can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 781186965: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 5929293598: Forbidden: bot was blocked by the user
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
+Error sending message to user 6616144643: Forbidden: bots can't send messages to bots
+Error sending message to user 854101937: Forbidden: bot was blocked by the user
+Error sending message to user 781186965: Forbidden: bot was blocked by the user
+Error sending message to user 2071531679: Forbidden: bot was blocked by the user
+Error sending message to user 495155217: Forbidden: bot was blocked by the user
+Error sending message to user 1472144956: Forbidden: bot was blocked by the user
+Error sending message to user 5558008927: Forbidden: bot was blocked by the user
+Error sending message to user 2102221875: Forbidden: bot was blocked by the user
+Error sending message to user 6018494210: Forbidden: bot was blocked by the user
+Error sending message to user 2107819977: Forbidden: bot was blocked by the user
+Error sending message to user 5762869662: Forbidden: bot was blocked by the user
+Error sending message to user 537453818: Forbidden: bot was blocked by the user
+Error sending message to user 5930036936: Forbidden: bot was blocked by the user
+Error sending message to user 1635009890: Forbidden: bot was blocked by the user
+Error sending message to user 651455148: Forbidden: bot was blocked by the user
+Error sending message to user 897190202: Chat not found
+Error sending message to user 5929293598: Forbidden: bot was blocked by the user
+Error sending message to user 664985054: Forbidden: bot was blocked by the user
